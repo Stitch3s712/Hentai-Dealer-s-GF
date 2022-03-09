@@ -220,10 +220,9 @@ hey_me_react = [
 gn_triggers = [
   "gn",
   "good night",
-  "going to bed",
-  "gonna go to bed",
-  "going to sleep",
-  "gonna go sleep",
+  "to bed",
+  "to sleep",
+  "nighty",
 ]
 gn_react = [
   "Byyee~ ／(^ ㅅ ^)＼",
@@ -256,6 +255,10 @@ mean_triggers = [
   "shut the f",
   "hang urself",
   "kill urself",
+  "dumb",
+  "piece o shit",
+  "piece o' shit",
+  "commit die",
   ]
 mean_react = [
   "● ﹏ ●",
@@ -309,7 +312,6 @@ feet_lick_triggers = [
   "licks <@!896707795703971851>'s feet",
   "licks <@!896707795703971851> 's feet",
 ]
-
 feet_lick_react = [
   "Huh-? Hey! AAAAAh- a- h- hnnnng~  (ꈍoꈍ)........ I mean- Hey! Stop it! Those feet belong to my master!  >~<",
 ]
@@ -331,6 +333,27 @@ dog_react = [
   "NYA NYA NYA NYA NYA  (ノ ′Дヾ )",
   "AAAAAAAA  〣 ( ºΔº ) 〣",
   "NOOO JUST LEAVE ME ALONE ( ⊃ д ⊂ )",
+]
+
+nice_age = [
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+]
+
+love_triggers = [
+  "i love",
+  "i <3",
+  "ily",
+]
+love_react = [
+  "**No! Stay away! ‧º·(˃̣̣̥︿˂̣̣̥)‧º·**",
+]
+love_me_react = [
+  "I love you too! I love you so much it's breaking me ʕ>⌓<｡ʔ",
 ]
 
 
@@ -380,10 +403,10 @@ async def on_message(message):
   elif any(word in message.content.lower() for word in hug_triggers):
     await message.channel.send(random.choice(hug_react))
 
-  if any(word in message.content.lower() for word in hey_triggers) and any(word in message.content.lower() for word in ping) and message.author.id == 659714371928326144: 
+  if any(word in message.content.lower() for word in hey_triggers) and any(word in message.content.lower() for word in ping) and not "nigger" in message.content.lower() and not "black" in message.content.lower() and message.author.id == 659714371928326144: 
    await message.channel.send(random.choice(hey_me_react))
 
-  elif any(word in message.content.lower() for word in hey_triggers) and any(word in message.content.lower() for word in ping):
+  elif any(word in message.content.lower() for word in hey_triggers) and any(word in message.content.lower() for word in ping) and not "nigger" in message.content.lower() and not "black" in message.content.lower():
     await message.channel.send(random.choice(hey_react))
 
   if any(word in message.content.lower() for word in mean_triggers) and any(word in message.content.lower() for word in ping) and message.author.id == 659714371928326144: 
@@ -415,6 +438,18 @@ async def on_message(message):
 
   if any(word in message.content.lower() for word in ping) and("are you" in message.content.lower() or "is" in message.content.lower() or "r u" in message.content.lower() or "are u" in message.content.lower() or "r you" in message.content.lower()) and("nigger" in message.content.lower() or "black" in message.content.lower()):
       await message.channel.send("**No!** I fucking **HATE** niggers!")
+
+  if "🧑🏿‍🦲" in message.content.lower():
+    await message.channel.send(random.choice(nigger_react))
+
+  if any(word in message.content() for word in nice_age):
+    await message.reply(":hot_face:")
+
+  if any(word in message.content.lower() for word in love_triggers) and any(word in message.content.lower() for word in ping) and message.author.id == 659714371928326144: 
+   await message.channel.send(random.choice(love_me_react))
+
+  elif any(word in message.content.lower() for word in gn_triggers) and any(word in message.content.lower() for word in ping):
+    await message.channel.send(random.choice(love_react))
 
     
 
